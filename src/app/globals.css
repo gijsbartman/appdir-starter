@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #0239e1;
+  --secondary: #00d5a1;
+  --tertiary: #00c9ff;
+  --body: #808080;
+  --background: #ffffff;
+
+  --header-height: 57px;
+}
+
+html,
+body {
+  @apply overflow-x-hidden;
+}
+
+/* TEXT */
+/* - HEADINGS */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-bold;
+}
+h1 {
+  @apply text-5xl md:text-6xl;
+}
+h2 {
+  @apply mb-4 text-4xl md:text-5xl;
+}
+h3 {
+  @apply mb-2 text-3xl md:text-4xl;
+}
+h4 {
+  @apply text-2xl md:text-3xl;
+}
+h5 {
+  @apply text-xl md:text-2xl;
+}
+h6 {
+  @apply text-lg md:text-xl;
+}
+/* - PARAGRAPH */
+p {
+  @apply text-body;
+}
+
+/* LAYOUT */
+/* - PAGE-WRAPPER */
+div#page-wrapper {
+  @apply flex min-h-[100svh] flex-col;
+}
+/* - HEADER */
+header#global-header {
+  @apply z-[99999] block;
+}
+/* - NAVIGATION */
+nav#top-navigation {
+  @apply fixed left-0 right-0 flex justify-between bg-tertiary;
+}
+.top-navigation-items {
+  @apply flex h-full gap-8;
+}
+.top-navigation-item {
+  @apply relative flex h-full items-center py-4 last:pr-4;
+}
+.top-navigation-subitems-container {
+  @apply absolute right-0 top-full max-h-0 overflow-hidden bg-tertiary transition-[max-height] duration-300 group-hover:max-h-[500px];
+}
+.top-navigation-subitems {
+  @apply whitespace-nowrap p-4;
+}
+/* - - MOBILE */
+@media screen and (max-width: 768px) {
+  .top-navigation-items-container {
+    @apply absolute left-0 right-0 top-full h-0 overflow-hidden bg-tertiary transition-[height] duration-300;
+  }
+  .top-navigation-items-container.active {
+    @apply h-[100svh];
+  }
+  .top-navigation-items {
+    @apply flex flex-col gap-8 p-4;
+  }
+  .top-navigation-item {
+    @apply relative flex h-auto items-center p-0 text-3xl;
+  }
+  .top-navigation-item.has-subitems > a {
+    @apply pointer-events-none;
+  }
+  .top-navigation-subitems-container {
+    @apply left-2 right-auto mt-2 rounded-sm bg-white pr-4;
+  }
+  .top-navigation-subitems {
+    @apply p-2 pr-4 pt-1;
+  }
+  .top-navigation-subitem {
+    @apply text-xl text-tertiary;
+  }
+}
+/* - MAIN */
+main#main-content {
+  @apply relative grid grid-cols-1;
+  padding-top: var(--header-height);
+}
+main#main-content .content-wrapper {
+  @apply mx-auto w-full max-w-[95vw] px-4 sm:max-w-[668px] sm:px-0 md:max-w-[892px] xl:max-w-[1240px];
+}
+/* - FOOTER */
+footer#global-footer {
+  @apply mt-auto bg-tertiary p-4 text-white;
+}
+
+/* LINKS */
+
+/* CUSTOM */
+
+/* ANIMATIONS */
